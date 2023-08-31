@@ -13,7 +13,7 @@ const displayMenuData = (menuTrimData) => {
     menuTrimData.forEach(singleMenu => {
         const div = document.createElement('div');
         div.innerHTML = `
-            <button class="btn btn-sm md:btn-md">${singleMenu.category}</button>
+            <button class="btn btn-sm">${singleMenu.category}</button>
         `;
         menuContainer.appendChild(div);
     });
