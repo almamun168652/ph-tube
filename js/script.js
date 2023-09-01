@@ -13,13 +13,58 @@ const displayMenuData = (menuTrimData) => {
     menuTrimData.forEach(singleMenu => {
         const div = document.createElement('div');
         div.innerHTML = `
-            <button class="btn btn-sm">${singleMenu.category}</button>
+            <button onclick="displayCardData('${singleMenu.category_id}')" class="btn btn-sm">${singleMenu.category}</button>
         `;
         menuContainer.appendChild(div);
+
+        displayCardData('1000');
+
     });
 
 }
 
+
+const displayCardData = async (categoryId) => {
+    const res = await fetch(`https://openapi.programming-hero.com/api/videos/category/${categoryId}`);
+    const data = await res.json();
+
+    const trimCard = data.data;
+
+    const cardContainer = document.getElementById('card-container');
+
+    cardContainer.innerHTML = '';
+
+    trimCard.forEach(singleCard => {
+        const div = document.createElement('div');
+        div.innerHTML = `
+            
+            <div class="max-w-86">
+                <figure><img class="rounded-lg h-48 w-full"
+                        src="${singleCard.thumbnail}" alt="Shoes" />
+                </figure>
+                <div class="p-4 flex gap-2">
+
+                    <img class="w-9 h-9 rounded-full"
+                        src="${singleCard?.authors[0]?.profile_picture}"
+                        alt="">
+
+                    <div>
+                        <h2 class="text-md font-bold">${singleCard.title}</h2>
+                        <div class="flex gap-2 items-center mt-3">
+                            <p class="text-md">${singleCard?.authors[0]?.profile_name}</p>
+                            <img class="w-4 h-4" src="" alt="">
+                        </div>
+                        <p class="text-md">${singleCard?.others?.views}</p>
+                    </div>
+
+
+                </div>
+            </div>
+        `;
+        cardContainer.appendChild(div);
+    });
+
+}
 
 
 
