@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blog</title>
+    <!-- daisy UI and Tailwind css -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@3.6.4/dist/full.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
+    <section
+      x-data="
+   {
+   openFaq1: false, 
+   openFaq2: false, 
+   openFaq3: false, 
+   openFaq4: false, 
+   openFaq5: false, 
+   openFaq6: false
+   }
+   "
+      class="relative z-20 overflow-hidden bg-slate-50 pt-20 pb-12 lg:pt-[120px] lg:pb-[90px]"
+    >
+      <div class="container mx-auto">
+        <div class="-mx-4 flex flex-wrap">
+          <div class="w-full px-4 m-4">
+            <div class="md:flex justify-between items-center">
+              <div class="flex-1">
+                <img class="w-full rounded" src="./images/faq.png" alt="" />
+              </div>
+              <div class="flex-1">
+                <div
+                  class="mx-auto mb-[60px] max-w-[520px] text-center lg:mb-20"
+                >
+                  <span
+                    class="mb-2 block text-4xl font-bold text-primary text-rose-700"
+                  >
+                    FAQ
+                  </span>
+                  <h2
+                    class="mb-4 text-3xl font-bold text-blue-600 sm:text-4xl md:text-[40px]"
+                  >
+                    ES6 JavaScript Question
+                  </h2>
+                  <a href="index.html"
+                    ><button class="btn btn-primary text-xl">
+                      Go PH Tube
+                    </button></a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="-mx-4 flex flex-wrap">
+          <div class="w-full px-4 lg:w-1/2">
+            <div
+              class="single-faq mb-8 w-full rounded-lg md:rounded-s-3xl border border-[#F3F4FE] bg-slate-800 text-white p-4 sm:p-8 lg:px-6 xl:px-8"
+            >
+              <button
+                class="faq-btn flex w-full text-left"
+                @click="openFaq1 = !openFaq1"
+              >
+                <img
+                  class="mr-5 flex h-10 w-full max-w-[40px] items-centerrounded-xl rounded-xl justify-center"
+                  src="./images/faq1.png"
+                  alt=""
+                />
+                <div class="w-full">
+                  <h4 class="text-lg font-semibold text-white">
+                    Discuss the scope of var, let, and const.
+                  </h4>
+                </div>
+              </button>
+              <div x-show="openFaq1" class="faq-content pl-[62px]">
+                <p class="py-3 text-base leading-relaxed text-body-color">
+                  var declarations are globally scoped or function scoped while
+                  let and const are block scoped. var variables can be updated
+                  and re-declared within its scope; let variables can be updated
+                  but not re-declared.
+                </p>
+              </div>
+            </div>
+            <div
+              class="single-faq mb-8 w-full rounded-lg md:rounded-s-3xl border border-[#F3F4FE] bg-slate-800 text-white p-4 sm:p-8 lg:px-6 xl:px-8"
+            >
+              <button
+                class="faq-btn flex w-full text-left"
+                @click="openFaq2 = !openFaq2"
+              >
+                <img
+                  class="mr-5 flex h-10 w-full max-w-[40px] items-center rounded-xl justify-center"
+                  src="./images/faq1.png"
+                  alt=""
+                />
+                <div class="w-full">
+                  <h4 class="text-lg font-semibold text-white">
+                    Tell us the use cases of null and undefined.
+                  </h4>
+                </div>
+              </button>
+              <div x-show="openFaq2" class="faq-content pl-[62px]">
+                <p class="py-3 text-base leading-relaxed text-body-color">
+                  Null is an object in JavaScript and represents primitive data
+                  types. A null value in JavaScript is used for referring
+                  absence of any object value and if any function or variable
+                  returns null, then we can infer that the object could not be
+                  created.
+                </p>
+              </div>
+            </div>
+            <div
+              class="single-faq mb-8 w-full rounded-lg md:rounded-s-3xl border border-[#F3F4FE] bg-slate-800 text-white p-4 sm:p-8 lg:px-6 xl:px-8"
+            >
+              <button
+                class="faq-btn flex w-full text-left"
+                @click="openFaq3 = !openFaq3"
+              >
+                <img
+                  class="mr-5 flex h-10 w-full max-w-[40px] items-center rounded-xl justify-center"
+                  src="./images/faq1.png"
+                  alt=""
+                />
+                <div class="w-full">
+                  <h4 class="text-lg font-semibold text-white">
+                    What do you mean by REST API?
+                  </h4>
+                </div>
+              </button>
+              <div x-show="openFaq3" class="faq-content pl-[62px]">
+                <p class="py-3 text-base leading-relaxed text-body-color">
+                  What is a REST API? An API, or application programming
+                  interface, is a set of rules that define how applications or
+                  devices can connect to and communicate with each other. A REST
+                  API is an API that conforms to the design principles of the
+                  REST, or representational state transfer architectural style.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="w-full px-4 lg:w-1/2">
+            <div
+              class="single-faq mb-8 w-full rounded-lg md:rounded-r-3xl border border-[#F3F4FE] bg-slate-800 text-white p-4 sm:p-8 lg:px-6 xl:px-8"
+            >
+              <button
+                class="faq-btn flex w-full text-left"
+                @click="openFaq4 = !openFaq4"
+              >
+                <img
+                  class="mr-5 flex h-10 w-full max-w-[40px] items-center rounded-xl justify-center"
+                  src="./images/faq1.png"
+                  alt=""
+                />
+                <div class="w-full">
+                  <h4 class="text-lg font-semibold text-white">
+                    What is the V8 engine JavaScript?
+                  </h4>
+                </div>
+              </button>
+              <div x-show="openFaq4" class="faq-content pl-[62px]">
+                <p class="py-3 text-base leading-relaxed text-body-color">
+                  Chrome V8 is a JavaScript engine, which means that it executes
+                  JavaScript code. Originally, JavaScript was written to be
+                  executed by web browsers. Chrome V8, or just V8, can execute
+                  JavaScript code either within or outside of a browser, which
+                  makes server-side scripting possible.
+                </p>
+              </div>
+            </div>
+            <div
+              class="single-faq mb-8 w-full rounded-lg md:rounded-r-3xl border border-[#F3F4FE] bg-slate-800 text-white p-4 sm:p-8 lg:px-6 xl:px-8"
+            >
+              <button
+                class="faq-btn flex w-full text-left"
+                @click="openFaq5 = !openFaq5"
+              >
+                <img
+                  class="mr-5 flex h-10 w-full max-w-[40px] items-center justify-center rounded-xl"
+                  src="./images/faq1.png"
+                  alt=""
+                />
+                <div class="w-full">
+                  <h4 class="text-lg font-semibold text-white">
+                    What is a global variable in JS?
+                  </h4>
+                </div>
+              </button>
+              <div x-show="openFaq5" class="faq-content pl-[62px]">
+                <p class="py-3 text-base leading-relaxed text-body-color">
+                  Variables that are created inside a function are local
+                  variables, and local variables can only be referred to by the
+                  code within the function. Variables created outside of
+                  functions are global variables, and the code in all functions
+                  has access to all global variables.
+                </p>
+              </div>
+            </div>
+            <div
+              class="single-faq mb-8 w-full rounded-lg md:rounded-r-3xl border border-[#F3F4FE] bg-slate-800 text-white p-4 sm:p-8 lg:px-6 xl:px-8"
+            >
+              <button
+                class="faq-btn flex w-full text-left"
+                @click="openFaq6 = !openFaq6"
+              >
+                <img
+                  class="mr-5 flex h-10 w-full max-w-[40px] items-center rounded-xl justify-center"
+                  src="./images/faq1.png"
+                  alt=""
+                />
+                <div class="w-full">
+                  <h4 class="text-lg font-semibold text-white">
+                    How long we deliver your first blog post?
+                  </h4>
+                </div>
+              </button>
+              <div x-show="openFaq6" class="faq-content pl-[62px]">
+                <p class="py-3 text-base leading-relaxed text-body-color">
+                  It takes 2-3 weeks to get your first blog post ready. That
+                  includes the in-depth research & creation of your monthly
+                  content marketing strategy that we do before writing your
+                  first blog post, Ipsum available .
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="absolute bottom-0 right-0 z-[-1]">
+        <svg
+          width="1440"
+          height="886"
+          viewBox="0 0 1440 886"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            opacity="0.9"
+            d="M193.307 -273.321L1480.87 1014.24L1121.85 1373.26C1121.85 1373.26 731.745 983.231 478.513 729.927C225.976 477.317 -165.714 85.6993 -165.714 85.6993L193.307 -273.321Z"
+            fill="url(#paint0_linear)"
+          />
+          <defs>
+            <linearGradient
+              id="paint0_linear"
+              x1="1308.65"
+              y1="1142.58"
+              x2="602.827"
+              y2="-418.681"
+              gradientUnits="userSpaceOnUse"
+            >
+              <stop stop-color="black" stop-opacity="1" />
+              <stop offset="1" stop-color="#F5F2FD" stop-opacity="0" />
+              <stop offset="1" stop-color="#F5F2FD" stop-opacity="0.096144" />
+            </linearGradient>
+          </defs>
+        </svg>
+      </div>
+    </section>
+  </body>
+</html>
