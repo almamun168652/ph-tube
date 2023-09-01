@@ -76,7 +76,7 @@ const displayCardData = async (categoryId) => {
                         <h2 class="text-md font-bold">${singleCard.title}</h2>
                         <div class="flex gap-2 items-center mt-3">
                             <p class="text-md">${singleCard?.authors[0]?.profile_name}</p>
-                            <small> ${ singleCard?.authors[0]?.verified == true ? "<img src='../images/verified.png'>" : "" }</small>
+                            <small> ${ singleCard?.authors[0]?.verified == true ? "<img src='./images/verified.png'>" : "" }</small>
                         </div>
                         <p class="text-md">${singleCard?.others?.views}</p>
                     </div>
