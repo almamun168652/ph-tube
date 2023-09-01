@@ -1,3 +1,6 @@
+
+let menuTrimGlobal = [];
+
 const loadMenuData = async () => {
     const res = await fetch('https://openapi.programming-hero.com/api/videos/categories');
     const data = await res.json();
@@ -5,7 +8,10 @@ const loadMenuData = async () => {
     const menuTrimData = data.data;
 
     displayMenuData(menuTrimData);
+
+    menuTrimGlobal = data;
 }
+
 
 const displayMenuData = (menuTrimData) => {
     const menuContainer = document.getElementById('menu-container');
@@ -28,6 +34,7 @@ const displayCardData = async (categoryId) => {
     const res = await fetch(`https://openapi.programming-hero.com/api/videos/category/${categoryId}`);
     const data = await res.json();
 
+
     const trimCard = data.data;
 
     const cardContainer = document.getElementById('card-container');
@@ -35,6 +42,8 @@ const displayCardData = async (categoryId) => {
     cardContainer.innerHTML = '';
 
     trimCard.forEach(singleCard => {
+
+
         const div = document.createElement('div');
         div.innerHTML = `
             
@@ -52,7 +61,7 @@ const displayCardData = async (categoryId) => {
                         <h2 class="text-md font-bold">${singleCard.title}</h2>
                         <div class="flex gap-2 items-center mt-3">
                             <p class="text-md">${singleCard?.authors[0]?.profile_name}</p>
-                            <img class="w-4 h-4" src="" alt="">
+                            <small> ${ singleCard?.authors[0]?.verified == true ? "<img src='../images/verified.png'>" : "" }</small>
                         </div>
                         <p class="text-md">${singleCard?.others?.views}</p>
                     </div>
@@ -62,6 +71,20 @@ const displayCardData = async (categoryId) => {
             </div>
         `;
         cardContainer.appendChild(div);
+
+        // const verifiedImage = document.getElementById('verified-image');
+
+        // let veri = singleCard.authors[0].verified;
+        // console.log(veri);
+        
+        // if(veri == true){
+        //     verifiedImage.classList.remove('hidden');
+
+        
+        // }else{
+        //     verifiedImage.classList.add('hidden');
+        // }
+
     });
 
 }
@@ -69,3 +92,5 @@ const displayCardData = async (categoryId) => {
 
 
 loadMenuData();
+
+
