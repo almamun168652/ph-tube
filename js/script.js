@@ -72,20 +72,26 @@ const displayCardData = async (categoryId) => {
         `;
         cardContainer.appendChild(div);
 
-        // const verifiedImage = document.getElementById('verified-image');
-
-        // let veri = singleCard.authors[0].verified;
-        // console.log(veri);
-        
-        // if(veri == true){
-        //     verifiedImage.classList.remove('hidden');
-
-        
-        // }else{
-        //     verifiedImage.classList.add('hidden');
-        // }
-
     });
+
+    if (trimCard.length == 0) {
+        const empltyContainer = document.getElementById('empty-container');
+
+        const div = document.createElement('div');
+        div.innerHTML = `
+            <div  class="min-h-screen flex flex-col items-center justify-center">
+                <div class="w-64 mx-auto text-center">
+                    <div class="flex justify-center">
+                        <img src="../images/Icon.png" alt="">
+                    </div>
+                    <p class="mt-6 font-bold text-xl">Oops!! Sorry, There is no content here</p>
+                </div>
+            </div>
+        `;
+
+        empltyContainer.appendChild(div);
+
+    }
 
 }
 
