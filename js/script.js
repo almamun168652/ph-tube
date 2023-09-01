@@ -19,7 +19,7 @@ const displayMenuData = (menuTrimData) => {
     menuTrimData.forEach(singleMenu => {
         const div = document.createElement('div');
         div.innerHTML = `
-            <button onclick="displayCardData('${singleMenu.category_id}') ; sortBtn('${singleMenu.category_id}') ; " class="btn btn-sm">${singleMenu.category}</button>
+            <button onclick="displayCardData('${singleMenu.category_id}') ; sortFunc('${singleMenu.category_id}') ; " class="btn btn-sm">${singleMenu.category}</button>
         `;
         menuContainer.appendChild(div);
 
@@ -87,7 +87,7 @@ const displayCardData = async (categoryId , sotto=false) => {
                             <p class="text-md">${singleCard?.authors[0]?.profile_name}</p>
                             <small> ${ singleCard?.authors[0]?.verified == true ? "<img src='./images/verified.png'>" : "" }</small>
                         </div>
-                        <p class="text-md">${singleCard?.others?.views}</p>
+                        <p class="text-md">${singleCard?.others?.views} views</p>
                     </div>
 
 
@@ -110,8 +110,8 @@ const displayCardData = async (categoryId , sotto=false) => {
 loadMenuData();
 
 
-const sortBtn = id =>{
-    const btnContainer = document.getElementById('sort-btn');
+const sortFunc = id =>{
+    const btnContainer = document.getElementById('sort-button-wrapper');
     btnContainer.textContent = '';
     btnContainer.innerHTML = `
         <button onclick="displayCardData('${id}', true)" class="btn btn-sm md:btn-md">Sort by view</button>
