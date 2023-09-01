@@ -19,7 +19,7 @@ const displayMenuData = (menuTrimData) => {
     menuTrimData.forEach(singleMenu => {
         const div = document.createElement('div');
         div.innerHTML = `
-            <button onclick="displayCardData('${singleMenu.category_id}')" class="btn btn-sm">${singleMenu.category}</button>
+            <button onclick="displayCardData('${singleMenu.category_id}') ; sortBtn('${singleMenu.category_id}') ; " class="btn btn-sm">${singleMenu.category}</button>
         `;
         menuContainer.appendChild(div);
 
@@ -30,7 +30,7 @@ const displayMenuData = (menuTrimData) => {
 }
 
 
-const displayCardData = async (categoryId) => {
+const displayCardData = async (categoryId , sotto=false) => {
     const res = await fetch(`https://openapi.programming-hero.com/api/videos/category/${categoryId}`);
     const data = await res.json();
 
@@ -48,6 +48,15 @@ const displayCardData = async (categoryId) => {
     }else{
         empltyContainer.classList.add('hidden');
     }
+
+
+    if(sotto == true){
+        trimCard.sort((a , b) => {
+            return parseFloat(b.others.views) - parseFloat(a.others.views);
+        });
+    }
+
+
 
     trimCard.forEach(singleCard => {
 
@@ -101,3 +110,10 @@ const displayCardData = async (categoryId) => {
 loadMenuData();
 
 
+const sortBtn = id =>{
+    const btnContainer = document.getElementById('sort-btn');
+    btnContainer.textContent = '';
+    btnContainer.innerHTML = `
+        <button onclick="displayCardData('${id}', true)" class="btn btn-sm md:btn-md">Sort by view</button>
+    `;
+}
