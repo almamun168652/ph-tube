@@ -72,7 +72,7 @@ const displayCardData = async (categoryId , sotto=false) => {
                 <figure class="relative">
                 <img class="rounded-lg h-48 w-full" src="${singleCard.thumbnail}" alt="Shoes"/>
                 <p class="bg-[#171717] absolute right-4 bottom-3 rounded-md p-1 text-[10px] text-white ${singleCard.others.posted_date !== '' ? '' : 'hidden'}">
-                ${Math.trunc(allHours)} hrs ${Math.trunc(sngleMinutes)} minute
+                ${Math.trunc(allHours)} hrs ${Math.trunc(sngleMinutes)} min ago
             </p>
                 </figure>
                 <div class="p-4 flex gap-2">
